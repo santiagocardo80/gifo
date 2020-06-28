@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './GifsList.css'
-import Gif from '../gif/Gif'
+import Gif from '../gif'
 
 const GifsList = ({ gifs }) => (
   <div className='ListOfGifs'>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'wouter'
+import { Route, Link } from 'wouter'
 
 import './App.css'
 import Home from './pages/home'
@@ -11,7 +11,11 @@ const App = () =>
   (
     <div className="App">
       <section className="App-content">
-        <h1>Gifo</h1>
+        <Link to="/">
+          <figure className="App-logo">
+            <img alt='Giffy logo' src='/logo.svg' />
+          </figure>
+        </Link>
         <GifsContextProvider>
           <Route path="/" component={Home} />
           <Route path="/search/:keyword" component={SearchResults} />

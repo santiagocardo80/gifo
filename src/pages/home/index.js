@@ -3,6 +3,7 @@ import { useLocation } from 'wouter'
 
 import useGifs from '../../hooks/useGifs'
 import GifsList from '../../components/gifslist'
+import TrendingGifs from '../../components/trending-gifs'
 
 const Home = () => {
   const [keyword, setKeyword] = useState('')
@@ -23,10 +24,18 @@ const Home = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <button>Search</button>
         <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
       </form>
-      <h3 className="App-title">Last Search</h3>
-      <GifsList gifs={gifs} />
+      <div className="App-main">
+        <div className="App-results">
+          <h3 className="App-title">Last Search</h3>
+          <GifsList gifs={gifs} />
+        </div>
+        <div className="App-category">
+          <TrendingGifs />
+        </div>
+      </div>
     </>
   )
 }
