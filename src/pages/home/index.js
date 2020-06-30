@@ -1,32 +1,23 @@
-import React, { useState } from 'react'
+import React, { useCallback } from 'react'
 import { useLocation } from 'wouter'
 
 import useGifs from '../../hooks/useGifs'
 import GifsList from '../../components/gifslist'
 import TrendingGifs from '../../components/trending-gifs'
+import SearchForm from '../../components/search-form'
 
 const Home = () => {
-  const [keyword, setKeyword] = useState('')
-  const [path, pushLocation] = useLocation()
-  const { loading, gifs } = useGifs()
+  const { gifs } = useGifs()
+  const [_path, pushLocation] = useLocation()
 
-  const handleSubmit = evt => {
-    evt.preventDefault()
-    
+  const handleSubmit = useCallback(keyword => {
     // Go to another route
     pushLocation(`/search/${keyword}`)
-  }
-
-  const handleChange = evt => {
-    setKeyword(evt.target.value)
-  }
+  }, [pushLocation])
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <button>Search</button>
-        <input placeholder="Search a gif here..." onChange={handleChange} type='text' value={keyword} />
-      </form>
+      <SearchForm onSubmit={handleSubmit} />
       <div className="App-main">
         <div className="App-results">
           <h3 className="App-title">Last Search</h3>
