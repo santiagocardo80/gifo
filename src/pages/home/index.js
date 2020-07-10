@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react'
 import { useLocation } from 'wouter'
+import { Helmet } from 'react-helmet'
 
 import useGifs from '../../hooks/useGifs'
 import GifsList from '../../components/gifslist'
@@ -17,6 +18,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Home | Giffy</title>
+      </Helmet>
       <SearchForm onSubmit={handleSubmit} />
       <div className="App-main">
         <div className="App-results">
