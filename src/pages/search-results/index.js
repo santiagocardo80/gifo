@@ -6,9 +6,11 @@ import GifsList from '../../components/gifslist'
 import Spinner from '../../components/spinner'
 import useGifs from '../../hooks/useGifs'
 import useNearScreen from '../../hooks/useNearScreen'
+import SearchForm from '../../components/search-form'
 
-const SearchResults = ({ params: { keyword } }) => {
-  const { loading, gifs, setPage } = useGifs({ keyword })
+const SearchResults = ({ params }) => {
+  const { keyword, rating } = params
+  const { loading, gifs, setPage } = useGifs({ keyword, rating })
   const { isNearScreen, fromRef } = useNearScreen({ once: false })
 
   const title = gifs ? `${gifs.length} results of ${keyword}` : ''
@@ -33,6 +35,7 @@ const SearchResults = ({ params: { keyword } }) => {
             <meta name="description" content={title} />
             <meta name="rating" content="General" />
           </Helmet>
+          <SearchForm initialKeyword={keyword} initialRating={rating} />
           <h3 className="App-title">{decodeURI(keyword)}</h3>
           <GifsList gifs={gifs} />
           <div id="viewer" ref={fromRef}></div>

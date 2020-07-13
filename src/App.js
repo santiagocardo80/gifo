@@ -18,7 +18,7 @@ const App = () =>
         </Link>
         <GifsContextProvider>
           <Route path="/" component={Home} />
-          <Route path="/search/:keyword" component={SearchResults} />
+          <Route path="/search/:keyword/:rating" component={SearchResults} />
           <Route path="/gif/:id" component={Details} />
           <Route path="/404" component={() => <h1>404 ERROR :(</h1>} />
         </GifsContextProvider>
