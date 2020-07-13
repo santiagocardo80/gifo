@@ -21,4 +21,4 @@ test('should use the initial values', () => {
 
   expect(result.current.keyword).toBe('avengers')
   expect(result.current.rating).toBe('g')
-})
+}) 

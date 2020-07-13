@@ -1,11 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import { ThemeProvider } from 'emotion-theming'
+
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import { theme } from './styles'
+
+import './index.css'
 
 ReactDOM.render(
-  <App />,
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
   document.getElementById('root')
 )
 

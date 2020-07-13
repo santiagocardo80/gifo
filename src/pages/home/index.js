@@ -14,14 +14,18 @@ const Home = () => {
       <Helmet>
         <title>Home | Giffy</title>
       </Helmet>
-      <SearchForm />
-      <div className="App-main">
-        <div className="App-results">
-          <h3 className="App-title">Last Search</h3>
-          <GifsList gifs={gifs} />
-        </div>
-        <div className="App-category">
-          <TrendingGifs />
+      <header className="o-header">
+        <SearchForm />
+      </header>
+      <div className="App-wrapper">
+        <div className="App-main">
+          <div className="App-results">
+            <h3 className="App-title">Last Search</h3>
+            <GifsList gifs={gifs} />
+          </div>
+          <div className="App-category">
+            <TrendingGifs />
+          </div>
         </div>
       </div>
     </>

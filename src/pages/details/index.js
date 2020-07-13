@@ -17,7 +17,7 @@ const Details = ({ params: { id } }) => {
     return (
       <>
         <Helmet>
-          <title>Cargando...</title>
+          <title>Loading...</title>
         </Helmet>
         <Spinner />
       </>
@@ -29,6 +29,7 @@ const Details = ({ params: { id } }) => {
       <Helmet>
         <title>{title} | Giffy</title>
       </Helmet>
+      <h3 className="App-title">{gif.title}</h3>
       <Gif {...gif} />
     </>
   )
