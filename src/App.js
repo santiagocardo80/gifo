@@ -6,6 +6,7 @@ import Home from './pages/home'
 import SearchResults from './pages/search-results'
 import Details from './pages/details'
 import { GifsContextProvider } from './context/GifsContext'
+import ErrorPage from "./pages/error-page"
 
 const App = () =>
   (
@@ -22,7 +23,7 @@ const App = () =>
             <Route path="/" component={Home} />
             <Route path="/search/:keyword/:rating" component={SearchResults} />
             <Route path="/gif/:id" component={Details} />
-            <Route path="/404" component={() => <h1>404 ERROR :(</h1>} />
+            <Route path="/:rest*" component={ErrorPage} />
           </Switch>
         </GifsContextProvider>
       </section>
