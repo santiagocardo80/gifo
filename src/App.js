@@ -10,6 +10,7 @@ import { UserContextProvider } from './context/UserContext'
 import ErrorPage from "./pages/error-page"
 import Header from "./components/header"
 import Login from "./pages/login"
+import Register from "./pages/register"
 
 const App = () =>
   (
@@ -28,6 +29,7 @@ const App = () =>
               <Route path="/search/:keyword/:rating" component={SearchResults} />
               <Route path="/gif/:id" component={Details} />
               <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
               <Route path="/:rest*" component={ErrorPage} />
             </Switch>
           </GifsContextProvider>
